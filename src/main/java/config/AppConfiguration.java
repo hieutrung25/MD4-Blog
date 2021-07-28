@@ -31,9 +31,9 @@ import repository.BlogRepositoryImp;
 import service.BlogService;
 import service.BlogServiceImp;
 
-import javax.activation.DataSource;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -92,7 +92,7 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[]{"com.codegym.model"});
+        em.setPackagesToScan(new String[]{"model"});
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -137,7 +137,7 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
     }
 
     @Autowired
-    Environment env;
+    Environment envỉonment;
 
     // Cấu hình để sử dụng các file nguồn tĩnh (css, image, js..)
     @Override
